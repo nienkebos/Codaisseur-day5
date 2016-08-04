@@ -22,3 +22,12 @@ get '/contacts/:i' do
   @contact = contacts[@i]
   erb :'contacts/show'
 end
+
+get '/contacts/:i/edit' do
+   @i = params[:i].to_i
+
+   contacts = read_contacts
+   @contact = contacts[@i]
+
+   erb :'contacts/edit'
+end
