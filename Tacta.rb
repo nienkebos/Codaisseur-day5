@@ -23,12 +23,18 @@ def ask(prompt)
   gets.chomp
 end
 
-puts
-response = aks "Who would you like to see? "
+loop do
+  index(contacts)
 
-i = response.to_i
+  puts
+  response = ask "Who would you like to see? "
 
-contact = contacts[i-1]
+  i = response.to_i
 
-puts
-show(contact)
+  contact = contacts[i-1]
+
+  puts
+  show(contact)
+  puts
+
+end
