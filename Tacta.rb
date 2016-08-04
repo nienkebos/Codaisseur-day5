@@ -36,35 +36,55 @@ def create_new
   contact
 end
 
+def action_new(contacts)
+  contact = create_new
+
+  contacts << contact
+
+  puts
+  puts "New contact created:"
+  puts
+
+  show(contact)
+  puts
+end
+
+def action_show(contacts, i)
+  contact = contacts[i-1]
+
+  puts
+  show(contact)
+  puts
+end
+
+def action_delete(contacts)
+  puts
+  response = ask "Delete which contact? "
+
+  i = response.to_i
+
+  puts
+  puts "Contact for #{contacts[i-1][:name]} deleted."
+
+  contacts.delete_at(i-1)
+
+  puts
+end
+
+
 loop do
   index(contacts)
 
   puts
-  response = ask "Who would you like to see (n for new, q to quit)? "
+  response = ask "Who would you like to see (n for new, d for delete, q to quit)? "
 
   break if response == "q"
-
   if response == "n"
-    
-    contact = create_new
-
-    contacts << contact
-
-    puts
-    puts "New contact created:"
-    puts
-
-    show(contact)
-    puts
-
+    action_new(contacts)
+  elsif response == "d"
+    action_delete(contacts)
   else
-    i = response.to_i
-
-    contact = contacts[i-1]
-
-    puts
-    show(contact)
-    puts
+    action_show(contacts, response.to_i)
   end
 end
 
