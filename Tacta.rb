@@ -81,7 +81,7 @@ def action_search(contacts)
   puts
 
   contacts.each do |contact|
-    if contact[:name] =~ /\b#{pattern}/i
+    if contact[:name] =~ /\B#{pattern}/i
       show(contact)
       puts
     end
