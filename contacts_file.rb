@@ -1,3 +1,5 @@
+require 'json'
+
 def read_contacts
   json = File.read('contacts.json')
   array = JSON.parse(json,{:symbolize_names => true})
