@@ -26,3 +26,6 @@ response = gets.chomp
 i = response.to_i
 
 contact = contacts[i-1]
+
+puts
+show(contact)
