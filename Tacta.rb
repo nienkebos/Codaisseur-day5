@@ -18,10 +18,13 @@ def show(contact)
   puts "email: #{contact[:email]}"
 end
 
+def ask(prompt)
+  print prompt
+  gets.chomp
+end
 
 puts
-print "Who would you like to see? "
-response = gets.chomp
+response = aks "Who would you like to see? "
 
 i = response.to_i
 
